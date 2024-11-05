@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Node structure for BST
+
 struct Node {
     int data;
     struct Node *left;
     struct Node *right;
 };
 
-// Function to create a new node
+
 struct Node* createNode(int data) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = data;
@@ -16,7 +16,6 @@ struct Node* createNode(int data) {
     return newNode;
 }
 
-// Function to insert a node in BST
 struct Node* insertNode(struct Node* root, int data) {
     if (root == NULL)
         return createNode(data);
@@ -29,7 +28,6 @@ struct Node* insertNode(struct Node* root, int data) {
     return root;
 }
 
-// Function to find the height of the tree (longest path)
 int findLongestPath(struct Node* root) {
     if (root == NULL)
         return 0;
@@ -40,7 +38,6 @@ int findLongestPath(struct Node* root) {
     return (leftDepth > rightDepth ? leftDepth : rightDepth) + 1;
 }
 
-// Function to find the minimum value in BST
 int findMinValue(struct Node* root) {
     struct Node* current = root;
     while (current && current->left != NULL)
@@ -48,7 +45,6 @@ int findMinValue(struct Node* root) {
     return current->data;
 }
 
-// Function to swap left and right pointers of each node
 void mirrorTree(struct Node* root) {
     if (root == NULL)
         return;
@@ -61,7 +57,6 @@ void mirrorTree(struct Node* root) {
     mirrorTree(root->right);
 }
 
-// Function to search for a value in BST
 int search(struct Node* root, int value) {
     if (root == NULL)
         return 0;
@@ -74,7 +69,6 @@ int search(struct Node* root, int value) {
         return search(root->right, value);
 }
 
-// In-order traversal to display the tree
 void inorder(struct Node* root) {
     if (root != NULL) {
         inorder(root->left);
@@ -83,7 +77,6 @@ void inorder(struct Node* root) {
     }
 }
 
-// Main function
 int main() {
     struct Node* root = NULL;
     int choice, value;
